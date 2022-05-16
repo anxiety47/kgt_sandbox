@@ -1,11 +1,14 @@
-<header></header>
+<header>
+  <fa-icon class="menu" [icon]="faMenu" (click)="toggleMenu(navbar)"></fa-icon>
+  <div class="user-account"></div>
+</header>
 <div id="content">
-  <nav>
-    <fa-icon [icon]="faDog"></fa-icon>
-    <fa-icon [icon]="faPerson"></fa-icon>
-    <fa-icon [icon]="faMap"></fa-icon>
-    <fa-icon [icon]="faMedal"></fa-icon>
-    <fa-icon [icon]="faEvent"></fa-icon>
+  <nav #navbar>
+    <div class="menu-item"><fa-icon class="icon-center" [icon]="faDog"></fa-icon><span class="menu-label">Psy</span></div>
+    <div class="menu-item"><fa-icon class="icon-center" [icon]="faPerson"></fa-icon><span class="menu-label">Przewodnicy</span></div>
+    <div class="menu-item"><fa-icon class="icon-center" [icon]="faMap"></fa-icon><span class="menu-label">Treningi</span></div>
+    <div class="menu-item"><fa-icon class="icon-center" [icon]="faCertificate"></fa-icon><span class="menu-label">Certyfikaty</span></div>
+    <div class="menu-item"><fa-icon class="icon-center" [icon]="faEvent"></fa-icon><span class="menu-label">Wydarzenia</span></div>
   </nav>
   <main></main>
 </div>
