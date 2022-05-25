@@ -1,1 +1,14 @@
-<p>trainings works!</p>
+<div class="trainings-list">
+  <ng-container *ngFor="let e of [].constructor(20); let i = index">
+    <ng-container *ngFor="let training of trainingsData">
+      <div class="card">
+        <span>{{training.localization}}</span>
+        <span>{{training.address}}</span>
+        <span>{{training.date | date }}</span>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>
+<div class="details">
+  <p>details placeholder</p>
+</div>
