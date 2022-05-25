@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { faDog, faMapMarkedAlt, faWalking, faMedal, faCalendarDay, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { navigationElements } from './navigation-elements';
 
 @Component({
   selector: 'app-root',
@@ -7,16 +8,10 @@ import { faDog, faMapMarkedAlt, faWalking, faMedal, faCalendarDay, faBars } from
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'kgt';
-  faDog = faDog;
-  faPerson = faWalking;
-  faMap = faMapMarkedAlt;
-  faCertificate = faMedal;
-  faEvent = faCalendarDay;
   faMenu = faBars;
+  navigationElements = navigationElements;
 
   toggleMenu(element: HTMLElement): void {
-    element.classList.toggle('expand')
+    element.classList.toggle('expand');
   }
-
 }

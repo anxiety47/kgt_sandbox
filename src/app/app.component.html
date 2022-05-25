@@ -4,11 +4,12 @@
 </header>
 <div id="content">
   <nav #navbar>
-    <div class="menu-item"><fa-icon class="icon-center" [icon]="faDog"></fa-icon><span class="menu-label">Psy</span></div>
-    <div class="menu-item"><fa-icon class="icon-center" [icon]="faPerson"></fa-icon><span class="menu-label">Przewodnicy</span></div>
-    <div class="menu-item"><fa-icon class="icon-center" [icon]="faMap"></fa-icon><span class="menu-label">Treningi</span></div>
-    <div class="menu-item"><fa-icon class="icon-center" [icon]="faCertificate"></fa-icon><span class="menu-label">Certyfikaty</span></div>
-    <div class="menu-item"><fa-icon class="icon-center" [icon]="faEvent"></fa-icon><span class="menu-label">Wydarzenia</span></div>
+    <ng-container *ngFor="let element of navigationElements">
+      <li class="menu-item" [routerLink]="element.routerLink">
+        <fa-icon class="icon-center" [icon]="element.icon"></fa-icon>
+        <span class="menu-label">{{element.label}}</span>
+      </li>
+    </ng-container>
   </nav>
   <main></main>
 </div>
