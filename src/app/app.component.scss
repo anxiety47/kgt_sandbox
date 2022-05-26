@@ -36,6 +36,7 @@ header {
 #content {
   display: flex;
   height: 100%;
+  overflow: hidden;
 
   nav {
     border: 1px solid black;
@@ -73,6 +74,8 @@ header {
   
   main {
     width: 100%;
+    overflow: auto;
+    padding: 1rem;
   }
 }
 
