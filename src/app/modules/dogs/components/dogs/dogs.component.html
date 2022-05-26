@@ -1,0 +1,10 @@
+<ng-container *ngFor="let dog of dogs">
+  <ng-container *ngFor="let e of [].constructor(5); let i = index">
+    <div class="card">
+      <div class="photo"></div>
+      <span>{{dog.name}}</span>
+      <span>{{dog.bread}}</span>
+      <span>{{dog.guideName}}</span>
+    </div>
+  </ng-container>
+</ng-container>

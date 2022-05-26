@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TrainingsModule } from './modules/trainings/trainings.module';
+import { DogsModule } from './modules/dogs/dogs.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { TrainingsModule } from './modules/trainings/trainings.module';
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    TrainingsModule
+    TrainingsModule,
+    DogsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
