@@ -1,4 +1,4 @@
-import { DogDetails, DogLevel } from "../models/dog.model";
+import { DogDetails, DogLevel } from "../../models/dog.model";
 
 export const tmpDogDetails : DogDetails =
 {

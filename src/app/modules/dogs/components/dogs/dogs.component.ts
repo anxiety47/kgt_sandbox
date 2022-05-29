@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Dog } from '../models/dog.model';
+import { Dog } from '../../models/dog.model';
 
 const tmpDogs: Dog[] = [
   {

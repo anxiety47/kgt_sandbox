@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DogDetails } from '../models/dog.model';
+import { DogDetails } from '../../models/dog.model';
 import { tmpDogDetails } from './tmp-data';
 
 @Component({
