@@ -1,10 +1,16 @@
-<p>dog-details works!</p>
-<p>dog id: {{dogId}}</p>
+<p-tabView>
+  <p-tabPanel header="Dane">
+    Content 1
+    <app-dog-data></app-dog-data>
+  </p-tabPanel>
+  <p-tabPanel header="Treningi">
+    Content 2
+    <app-dog-trainings-list></app-dog-trainings-list>
+  </p-tabPanel>
+  <p-tabPanel header="Wydarzenia">
+    Content 3
+    <app-dog-trainings-list></app-dog-trainings-list>
+  </p-tabPanel>
+</p-tabView>
 
-<p>{{dogDetails.name}}</p>
-<p>{{dogDetails.guideName}}</p>
-<p>{{dogDetails.breed}}</p>
-<p>{{dogDetails.dateOfBirth | date}}</p>
-<p>{{dogDetails.level}}</p>
-<p>{{dogDetails.notes}}</p>
 
