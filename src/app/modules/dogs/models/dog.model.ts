@@ -1,4 +1,4 @@
-import { CommercialTraining, KgtTraining } from "./training.model";
+import { Training } from "./training.model";
 
 export interface Dog {
   id: string;
@@ -23,6 +23,6 @@ export interface DogDetails {
   level: DogLevel;
   notes: string;
   // photo
-  kgtTrainings: KgtTraining[];
-  commercialTrainings: CommercialTraining[];
+  kgtTrainings: Training[];
+  commercialTrainings: Training[];
 }

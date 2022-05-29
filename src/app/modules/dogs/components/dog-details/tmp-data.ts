@@ -13,14 +13,25 @@ export const tmpDogDetails : DogDetails =
     {
       "id": "11",
       "date": new Date(),
-      "location": "Lokalizacja 1"
+      "location": "Lokalizacja 1",
+      "trailLength": 123,
+      "timeOfDelay": "15 min"
+    },
+    {
+      "id": "12",
+      "date": new Date(),
+      "location": "Lokalizacja 2",
+      "trailLength": 321,
+      "timeOfDelay": "45 min"
     }
   ],
   "commercialTrainings": [
     {
-      "id": "12",
+      "id": "21",
       "date": new Date(),
-      "location": "Lokalizajca 2"
+      "location": "Lokalizajca 2",
+      "trailLength": 500,
+      "timeOfDelay": "30 min"
     }
   ]
 }

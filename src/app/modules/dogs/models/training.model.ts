@@ -1,12 +1,8 @@
-export interface KgtTraining {
+export interface Training {
   id: string;
   date: Date;
   location: string;
-}
-
-export interface CommercialTraining {
-  id: string;
-  date: Date;
-  location: string;
+  trailLength: number;
+  timeOfDelay: string;
 }
 
