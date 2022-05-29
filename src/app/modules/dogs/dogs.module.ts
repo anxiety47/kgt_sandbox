@@ -7,6 +7,7 @@ import { TabViewModule } from 'primeng/tabview';
 import { TableModule } from 'primeng/table';
 import { DogDataComponent } from './components/dog-details/dog-data/dog-data.component';
 import { DogTrainingsListComponent } from './components/dog-details/dog-trainings-list/dog-trainings-list.component';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DogTrainingsListComponent } from './components/dog-details/dog-training
     CommonModule,
     DogsRoutingModule,
     TabViewModule,
-    TableModule
+    TableModule,
+    ButtonModule
   ]
 })
 export class DogsModule { }

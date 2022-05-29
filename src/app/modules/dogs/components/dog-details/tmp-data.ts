@@ -29,7 +29,7 @@ export const tmpDogDetails : DogDetails =
     {
       "id": "21",
       "date": new Date(),
-      "location": "Lokalizajca 2",
+      "location": "Lokalizacja 2",
       "trailLength": 500,
       "timeOfDelay": "30 min"
     }

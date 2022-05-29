@@ -15,4 +15,7 @@ export class DogTrainingsListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  showTraining(): void {
+    // todo: redirect to training details
+  }
 }
