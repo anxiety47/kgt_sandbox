@@ -1,23 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-
-interface Dog {
-  id: string;
-  name: string;
-  bread: string;
-  guideName: string;
-}
+import { ActivatedRoute, Router } from '@angular/router';
+import { Dog } from '../models/dog.model';
 
 const tmpDogs: Dog[] = [
   {
     id: '1',
     name: 'Azor',
-    bread: 'Labrador',
+    breed: 'Labrador',
     guideName: 'Jan Kowalski'
   },
   {
     id: '2',
     name: 'Reks',
-    bread: 'Owczarek niemiecki',
+    breed: 'Owczarek niemiecki',
     guideName: 'Jan Kowalski'
   }
 ]
@@ -31,9 +26,12 @@ export class DogsComponent implements OnInit {
 
   dogs = tmpDogs;
 
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
 
+  showDetails(id: string): void {
+    this.router.navigate([id], { relativeTo: this.route });
+  }
 }
