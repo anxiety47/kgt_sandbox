@@ -15,8 +15,7 @@ import { DogsModule } from './modules/dogs/dogs.module';
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    TrainingsModule,
-    DogsModule
+    TrainingsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
