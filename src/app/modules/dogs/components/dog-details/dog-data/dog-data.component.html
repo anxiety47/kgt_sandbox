@@ -1,1 +1,30 @@
-<p>dog-data works!</p>
+<section>
+  <div class="header flex">
+    <span>{{data.name}}</span>
+    <i class="pi pi-pencil ml-2"></i>
+  </div>
+  <p-divider></p-divider>
+  <div class="dog-data">
+    <span>Przewodnik</span>
+    <span>{{data.guideName}}</span>
+  </div>
+  <div class="dog-data">
+    <span>Rasa</span>
+    <span>{{data.breed}}</span>
+  </div>
+  <div class="dog-data">
+    <span>Data urodzenia</span>
+    <span>{{data.dateOfBirth | date}}</span>
+  </div>
+  <div class="dog-data">
+    <span>Poziom</span>
+    <span>{{data.level}}</span>
+  </div>
+  <div class="dog-data">
+    <span>Notatki</span>
+    <span>{{data.notes}}</span>
+  </div>
+</section>
+<section>
+  <div class="photo"></div>
+</section>

@@ -8,6 +8,7 @@ import { TableModule } from 'primeng/table';
 import { DogDataComponent } from './components/dog-details/dog-data/dog-data.component';
 import { DogTrainingsListComponent } from './components/dog-details/dog-trainings-list/dog-trainings-list.component';
 import { ButtonModule } from 'primeng/button';
+import {DividerModule} from 'primeng/divider';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ButtonModule } from 'primeng/button';
     DogsRoutingModule,
     TabViewModule,
     TableModule,
-    ButtonModule
+    ButtonModule,
+    DividerModule
   ]
 })
 export class DogsModule { }

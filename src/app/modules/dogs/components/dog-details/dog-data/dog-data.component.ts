@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DogDetails } from '../../../models/dog.model';
 
 @Component({
   selector: 'app-dog-data',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DogDataComponent implements OnInit {
 
+  @Input() public data!: DogDetails;
   constructor() { }
 
   ngOnInit(): void {

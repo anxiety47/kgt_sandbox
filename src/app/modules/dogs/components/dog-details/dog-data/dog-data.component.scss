@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+}
+
+.header span {
+  font-size: 2rem
+}
+
+section {
+  flex-grow: 1;
+
+  .dog-data {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+}
+
+.photo {
+  width: 10rem;
+  height: 10rem;
+  border: 1px solid red;
+}
