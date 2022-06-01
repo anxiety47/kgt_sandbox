@@ -1,5 +1,9 @@
 :host {
   display: flex;
+
+  @media (max-width:768px) {
+    flex-direction: column-reverse;
+  }
 }
 
 .header span {
@@ -8,6 +12,9 @@
 
 section {
   flex-grow: 1;
+  flex-basis: 50%;
+  padding: 1rem;
+  border: 1px solid blue;
 
   .dog-data {
     display: flex;
@@ -17,7 +24,7 @@ section {
 }
 
 .photo {
-  width: 10rem;
-  height: 10rem;
+  width: 15rem;
+  height: 15rem;
   border: 1px solid red;
 }
