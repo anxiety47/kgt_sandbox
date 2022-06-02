@@ -14,4 +14,7 @@ export class DogDataComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  editData() {
+    console.log('edit');
+  }
 }

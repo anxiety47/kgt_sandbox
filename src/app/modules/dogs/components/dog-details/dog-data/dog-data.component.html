@@ -1,9 +1,15 @@
-<section>
+<section class="flex flex-column justify-content-center">
+  <img src="../../../../../../assets/images/home-background.jpg" class="photo">
   <div class="header flex align-items-center">
-    <span>{{data.name}}</span>
-    <i class="pi pi-pencil ml-3"></i>
+    <h1>{{data.name}}</h1>
   </div>
-  <p-divider></p-divider>
+  <div class="buttons flex">
+    <button pButton pRipple type="button" label="Edytuj dane" class="p-button-raised"></button>
+    <button pButton pRipple type="button" label="Zmień zdjęcie" class="p-button-raised"></button>
+  </div>
+</section>
+
+<section>
   <div class="dog-data">
     <span>Przewodnik</span>
     <span>{{data.guideName}}</span>
@@ -24,7 +30,4 @@
     <span>Notatki</span>
     <span>{{data.notes}}</span>
   </div>
-</section>
-<section class="flex align-items-center justify-content-center">
-  <div class="photo"></div>
 </section>
