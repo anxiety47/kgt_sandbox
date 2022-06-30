@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { DogDetails } from '../../../models/dog.model';
 
 @Component({
@@ -9,12 +10,26 @@ import { DogDetails } from '../../../models/dog.model';
 export class DogDataComponent implements OnInit {
 
   @Input() public data!: DogDetails;
-  constructor() { }
+  isDataReadonly: boolean = true;
+  editDogForm = this.formBuilder.group({
+    guide: [],
+    breed: ['test'],
+    dateOfBirth: [],
+    level: [],
+    notes: []
+  });
+
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
   }
 
-  editData() {
+  editData(): void {
     console.log('edit');
+    this.isDataReadonly = false;
+  }
+
+  saveData(): void {
+    this.isDataReadonly = true;
   }
 }

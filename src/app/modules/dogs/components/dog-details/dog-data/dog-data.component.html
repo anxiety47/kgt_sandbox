@@ -3,31 +3,60 @@
   <div class="header flex align-items-center">
     <h1>{{data.name}}</h1>
   </div>
-  <div class="buttons flex">
-    <button pButton pRipple type="button" label="Edytuj dane" class="p-button-raised"></button>
+  <div class="buttons flex justify-content-center gap-3">
+    <button pButton pRipple type="button" label="Edytuj dane" class="p-button-raised" (click)="editData()"></button>
     <button pButton pRipple type="button" label="Zmień zdjęcie" class="p-button-raised"></button>
   </div>
 </section>
 
 <section>
-  <div class="dog-data">
-    <span>Przewodnik</span>
-    <span>{{data.guideName}}</span>
-  </div>
-  <div class="dog-data">
-    <span>Rasa</span>
-    <span>{{data.breed}}</span>
-  </div>
-  <div class="dog-data">
-    <span>Data urodzenia</span>
-    <span>{{data.dateOfBirth | date:"dd-MM-yyyy"}}</span>
-  </div>
-  <div class="dog-data">
-    <span>Poziom</span>
-    <span>{{data.level}}</span>
-  </div>
-  <div class="dog-data">
-    <span>Notatki</span>
-    <span>{{data.notes}}</span>
-  </div>
+  <ng-container *ngIf="isDataReadonly; else form">
+    <div class="dog-data">
+      <span class="label">Przewodnik</span>
+      <span>{{data.guideName}}</span>
+    </div>
+    <div class="dog-data">
+      <span class="label">Rasa</span>
+      <span>{{data.breed}}</span>
+    </div>
+    <div class="dog-data">
+      <span class="label">Data urodzenia</span>
+      <span>{{data.dateOfBirth | date:"dd-MM-yyyy"}}</span>
+    </div>
+    <div class="dog-data">
+      <span class="label">Poziom</span>
+      <span>{{data.level}}</span>
+    </div>
+    <div class="dog-data">
+      <span class="label">Notatki</span>
+      <span>{{data.notes}}</span>
+    </div>
+  </ng-container>
+
+  <ng-template #form>
+    <form [formGroup]="editDogForm" class="flex flex-column">
+      <div class="dog-data">
+        <label for="guide">Przewodnik</label>
+        <p-dropdown formControlName="guide" id="guide"></p-dropdown>
+      </div>
+      <div class="dog-data">
+        <label for="breed">Rasa</label>
+        <input type="text"ks pInputText formControlName="breed" id="breed">
+      </div>
+      <div class="dog-data">
+        <label for="dateOfBirth">Data urodzenia</label>
+        <p-calendar formControlName="dateOfBirth" id="dateOfBirth"></p-calendar>
+      </div>
+      <div class="dog-data">
+        <label for="level">Poziom</label>
+        <p-dropdown formControlName="level" id="level"></p-dropdown>
+      </div>
+      <div class="dog-data">
+        <label for="notes">Notatki</label>
+        <textarea pInputTextarea formControlName="notes" id="notes"></textarea>
+      </div>
+
+      <button pButton pRipple type="button" label="Zapisz" class="p-button-raised align-self-end" (click)="saveData()"></button>
+    </form>
+  </ng-template>
 </section>

@@ -9,6 +9,11 @@ import { DogDataComponent } from './components/dog-details/dog-data/dog-data.com
 import { DogTrainingsListComponent } from './components/dog-details/dog-trainings-list/dog-trainings-list.component';
 import { ButtonModule } from 'primeng/button';
 import {DividerModule} from 'primeng/divider';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { CalendarModule } from 'primeng/calendar';
+import { DropdownModule } from 'primeng/dropdown';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +28,13 @@ import {DividerModule} from 'primeng/divider';
     TabViewModule,
     TableModule,
     ButtonModule,
-    DividerModule
+    DividerModule,
+    InputTextModule,
+    InputTextareaModule,
+    CalendarModule,
+    DropdownModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class DogsModule { }

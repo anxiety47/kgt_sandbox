@@ -17,3 +17,9 @@ p-divider {
     height: 100%;
   }
 }
+
+p-dropdown span.p-inputtext,
+input.p-inputtext,
+textarea.p-inputtext {
+  padding: 0.5rem;
+}
