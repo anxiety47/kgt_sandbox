@@ -14,7 +14,11 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { DogsApiService } from './services/dogs-api/dogs-api.service';
+import { environment } from 'src/environments/environment';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDogsService } from 'src/backend-mock/in-memory-dogs.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     DogsComponent,
@@ -24,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     DogsRoutingModule,
     TabViewModule,
     TableModule,
@@ -34,7 +39,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CalendarModule,
     DropdownModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    environment.production ?
+      [] : HttpClientInMemoryWebApiModule.forRoot(InMemoryDogsService)
+  ],
+  providers: [
+    DogsApiService
   ]
 })
 export class DogsModule { }

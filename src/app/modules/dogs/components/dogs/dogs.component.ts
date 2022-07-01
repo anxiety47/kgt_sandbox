@@ -1,21 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Dog } from '../../models/dog.model';
+import { DogsApiService } from '../../services/dogs-api/dogs-api.service';
 
-const tmpDogs: Dog[] = [
-  {
-    id: '1',
-    name: 'Azor',
-    breed: 'Labrador',
-    guideName: 'Jan Kowalski'
-  },
-  {
-    id: '2',
-    name: 'Reks',
-    breed: 'Owczarek niemiecki',
-    guideName: 'Jan Kowalski'
-  }
-]
 
 @Component({
   selector: 'app-dogs',
@@ -24,11 +11,17 @@ const tmpDogs: Dog[] = [
 })
 export class DogsComponent implements OnInit {
 
-  dogs = tmpDogs;
+  dogs!: Dog[];
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private dogsApiService: DogsApiService) { }
 
   ngOnInit(): void {
+    this.dogsApiService.getDogs().subscribe(dogs => {
+      this.dogs = dogs;
+    })
   }
 
   showDetails(id: string): void {
