@@ -51,6 +51,83 @@ export class InMemoryDogsService extends InMemoryDbService {
               "location": "Lokalizacja 2",
               "trailLength": 500,
               "timeOfDelay": "30 min"
+            },
+            {
+              "id": "21",
+              "date": new Date(),
+              "location": "Lokalizacja 2",
+              "trailLength": 500,
+              "timeOfDelay": "30 min"
+            },
+            {
+              "id": "21",
+              "date": new Date(),
+              "location": "Lokalizacja 2",
+              "trailLength": 500,
+              "timeOfDelay": "30 min"
+            },
+            {
+              "id": "21",
+              "date": new Date(),
+              "location": "Lokalizacja 2",
+              "trailLength": 500,
+              "timeOfDelay": "30 min"
+            },
+            {
+              "id": "21",
+              "date": new Date(),
+              "location": "Lokalizacja 2",
+              "trailLength": 500,
+              "timeOfDelay": "30 min"
+            },
+            {
+              "id": "21",
+              "date": new Date(),
+              "location": "Lokalizacja 2",
+              "trailLength": 500,
+              "timeOfDelay": "30 min"
+            },
+            {
+              "id": "21",
+              "date": new Date(),
+              "location": "Lokalizacja 2",
+              "trailLength": 500,
+              "timeOfDelay": "30 min"
+            },
+            {
+              "id": "21",
+              "date": new Date(),
+              "location": "Lokalizacja 2",
+              "trailLength": 500,
+              "timeOfDelay": "30 min"
+            },
+            {
+              "id": "21",
+              "date": new Date(),
+              "location": "Lokalizacja 2",
+              "trailLength": 500,
+              "timeOfDelay": "30 min"
+            },
+            {
+              "id": "21",
+              "date": new Date(),
+              "location": "Lokalizacja 2",
+              "trailLength": 500,
+              "timeOfDelay": "30 min"
+            },
+            {
+              "id": "21",
+              "date": new Date(),
+              "location": "Lokalizacja 2",
+              "trailLength": 500,
+              "timeOfDelay": "30 min"
+            },
+            {
+              "id": "21",
+              "date": new Date(),
+              "location": "Lokalizacja 2",
+              "trailLength": 500,
+              "timeOfDelay": "30 min"
             }
           ]
         }
