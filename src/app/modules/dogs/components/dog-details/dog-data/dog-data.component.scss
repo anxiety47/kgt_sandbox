@@ -1,49 +1,66 @@
 :host {
   display: flex;
-  // height: 100%;
   height: fit-content;
 
-  @media (max-width:480px) {
+  @media (max-width: 480px) {
     flex-direction: column;
   }
+}
 
-  section {
-    flex-grow: 1;
-    flex-basis: 50%;
-    padding: 1rem;
-    margin: 1rem;
-    box-shadow: 0px 0px 23px -2px rgba(102, 102, 126, 1);
+section {
+  flex-grow: 1;
+  flex-basis: 50%;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 0px 0px 23px -2px rgba(102, 102, 126, 1);
 
-    &:first-of-type {
-      background-color: #9cc3ff;
-      padding: 2rem;
-      gap: 1rem;
-    }
-
-    .header {
-      align-self: center;
-
-      span {
-        font-size: 2rem
-      }
-    }
-
-    .dog-data {
-      display: flex;
-      flex-direction: column;
-      padding: 1rem;
-      gap: 0.5rem;
-    }
+  &:first-of-type {
+    background-color: #9cc3ff;
+    padding: 2rem;
+    gap: 1rem;
   }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.dog-photo {
+  align-self: center;
 
   .photo {
-    width: 100%;
     box-shadow: -4px 2px 30px 0px rgba(66, 68, 90, 1);
-    flex: 2 1 auto;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+  }
+}
+
+.header {
+  align-self: center;
+}
+
+.dog-data {
+  flex-wrap: wrap;
+
+  >span,
+  >label,
+  >.dog-input {
+    width: 50%;
+    flex-grow: 1;
+    border: solid 3px white;
+
+    @media (max-width: 480px) {
+      width: 100%;
+    }
   }
 
-  .dog-data .label,
-  form label {
+  >span.label,
+  >label {
     font-weight: bold;
+  }
+
+  >textarea {
+    resize: none;
   }
 }

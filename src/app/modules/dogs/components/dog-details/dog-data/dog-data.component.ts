@@ -22,6 +22,14 @@ export class DogDataComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
+    this.editDogForm.patchValue({
+      // TODO: get data from backend and set dropdown options, set values in form
+      // guide 
+      // level
+      breed: this.data.breed,
+      dateOfBirth: new Date(this.data.dateOfBirth),
+      notes: this.data.notes 
+    });
   }
 
   editData(): void {

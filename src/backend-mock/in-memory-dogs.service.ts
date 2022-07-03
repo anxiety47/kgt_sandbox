@@ -25,7 +25,7 @@ export class InMemoryDogsService extends InMemoryDbService {
           "name": "Azor",
           "guideName": "Jan Kowalski",
           "breed": "Labrador",
-          "dateOfBirth": new Date(),
+          "dateOfBirth": new Date(2022, 11, 20),
           "level": DogLevel.ADVANCED,
           "notes": "notatki",
           "kgtTrainings": [
