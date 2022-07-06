@@ -20,4 +20,8 @@ export class TrainingsComponent implements OnInit {
     })
   }
 
+  showTraining(): void {
+    console.log('show training')
+  }
+
 }

@@ -1,14 +1,35 @@
 <div class="trainings-list">
-  <ng-container *ngFor="let e of [].constructor(20); let i = index">
-    <ng-container *ngFor="let training of trainingsData">
-      <div class="card">
-        <span>{{training.localization}}</span>
-        <span>{{training.address}}</span>
-        <span>{{training.date | date:"dd-MM-yyyy" }}</span>
-      </div>
-    </ng-container>
-  </ng-container>
+  <p-table
+    [value]="trainingsData"
+    responsiveLayout="scroll"
+    [paginator]="true"
+    [rows]="8"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="{first} z {last}"
+    [rowsPerPageOptions]="[8,16]">
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Lokalizacja</th>
+        <th>Adres</th>
+        <th>Data</th>
+        <th style="width:4rem"></th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-training>
+      <tr>
+        <td>{{training.localization}}</td>
+        <td>{{training.address}}</td>
+        <td>{{training.date | date:"dd-MM-yyyy"}}</td>
+        <td>
+          <button type="button" pButton pRipple icon="pi pi-map" (click)="showTraining()"></button>
+        </td>
+      </tr>
+    </ng-template>
+
+  </p-table>
 </div>
-<div class="details">
+<div class="map">
   <p>map placeholder</p>
 </div>

@@ -8,8 +8,8 @@ export class InMemoryTrainingsService extends InMemoryDbService {
       trainings:  [
         {
           id: "1",
-          localization: "localization 1",
-          address: "address 1",
+          localization: "localization 1 - long long long long name",
+          address: "address 1 longlonglonglongname",
           date: new Date(2022, 11, 20)
         },
         {

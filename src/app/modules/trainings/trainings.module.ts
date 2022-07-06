@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryTrainingsService } from 'src/backend-mock/in-memory-trainings.service';
 import { HttpClientModule } from '@angular/common/http';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     ButtonModule,
     HttpClientModule,
+    TableModule,
     environment.production ?
     [] : HttpClientInMemoryWebApiModule.forRoot(InMemoryTrainingsService)
   ]
