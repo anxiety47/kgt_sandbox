@@ -14,7 +14,7 @@ export class DogDataComponent implements OnInit {
   isDataReadonly: boolean = true;
   editDogForm = this.formBuilder.group({
     guide: [],
-    breed: ['test'],
+    breed: [],
     dateOfBirth: [],
     notes: []
   });
@@ -31,22 +31,23 @@ export class DogDataComponent implements OnInit {
       notes: this.data.notes 
     });
 
-    this.dogsApiService.getGuides().subscribe( data => {
-      this.guides = data;
+    this.dogsApiService.getGuides().subscribe( guides => {
+      this.guides = guides;
     })
   }
 
   editData(): void {
-    console.log('edit');
     this.isDataReadonly = false;
+    // TODO implementation
   }
-
+  
   saveData(): void {
     this.isDataReadonly = true;
+    // TODO implementation
   }
-
+  
   changePhoto(): void {
-    // TODO
     console.log('change photo')
+    // TODO implementation
   }
 }
