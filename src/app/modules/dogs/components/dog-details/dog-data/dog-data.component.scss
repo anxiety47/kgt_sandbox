@@ -27,12 +27,24 @@ section {
 
 .dog-photo {
   align-self: center;
+  position: relative;
+  display: flex;
 
   .photo {
     box-shadow: -4px 2px 30px 0px rgba(66, 68, 90, 1);
     width: 10rem;
     height: 10rem;
-    border-radius: 50%;
+    border-radius: 2vmax;
+    border: 3px solid white;
+  }
+
+  i {
+    position: absolute;
+    bottom: -0.5rem;
+    right: -0.5rem;
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
   }
 }
 
@@ -63,4 +75,8 @@ section {
   >textarea {
     resize: none;
   }
+}
+
+i {
+  cursor: pointer;
 }

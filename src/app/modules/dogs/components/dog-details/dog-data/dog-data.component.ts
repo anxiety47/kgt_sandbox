@@ -44,4 +44,9 @@ export class DogDataComponent implements OnInit {
   saveData(): void {
     this.isDataReadonly = true;
   }
+
+  changePhoto(): void {
+    // TODO
+    console.log('change photo')
+  }
 }
