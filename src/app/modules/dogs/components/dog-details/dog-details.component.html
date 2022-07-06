@@ -1,0 +1,15 @@
+<ng-container *ngIf="dogDetails; else spinner">
+  <app-dog-data [data]="dogDetails"></app-dog-data>
+  <p-tabView>
+    <p-tabPanel header="Treningi">
+      <app-dog-trainings-list [trainingsList]="dogDetails.kgtTrainings"></app-dog-trainings-list>
+    </p-tabPanel>
+    <p-tabPanel header="Wydarzenia">
+      <app-dog-trainings-list [trainingsList]="dogDetails.commercialTrainings"></app-dog-trainings-list>
+    </p-tabPanel>
+  </p-tabView>
+</ng-container>
+
+<ng-template #spinner>
+  <!-- TODO: implement spinner -->
+</ng-template>

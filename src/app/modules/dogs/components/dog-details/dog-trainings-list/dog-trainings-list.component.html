@@ -1,0 +1,29 @@
+<p-table
+  [value]="trainingsList"
+  responsiveLayout="scroll"
+  [paginator]="true"
+  [rows]="8"
+  [showCurrentPageReport]="true"
+  currentPageReportTemplate="{first} z {last}"
+  [rowsPerPageOptions]="[8,16]">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Data</th>
+      <th>Lokalizacja</th>
+      <th>Długość śladu</th>
+      <th>Czas odłożenia</th>
+      <th style="width:4rem"></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-training>
+    <tr>
+      <td>{{training.date | date:"dd-MM-yyyy"}}</td>
+      <td>{{training.location}}</td>
+      <td>{{training.trailLength}}</td>
+      <td>{{training.timeOfDelay}}</td>
+      <td>
+        <button type="button" pButton pRipple icon="pi pi-map" (click)="showTraining()"></button>
+    </td>
+    </tr>
+  </ng-template>
+</p-table>

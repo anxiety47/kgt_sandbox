@@ -1,0 +1,15 @@
+p-divider {
+  .p-divider.p-divider-horizontal {
+    margin: 0.5rem 0;
+  }
+}
+
+p-dropdown span.p-inputtext,
+input.p-inputtext,
+textarea.p-inputtext {
+  padding: 0.5rem;
+}
+
+p-dropdown .p-paginator-rpp-options.p-dropdown.p-component span {
+  align-self: center;
+}

@@ -5,6 +5,7 @@ import { TrainingsComponent } from './modules/trainings/components/trainings/tra
 const routes: Routes = [
   // TODO: use lazy loading for modules
   { path: 'trainings', component: TrainingsComponent },
+  { path: 'dogs', loadChildren: () => import('./modules/dogs/dogs.module').then(m => m.DogsModule) }
 ];
 
 @NgModule({
