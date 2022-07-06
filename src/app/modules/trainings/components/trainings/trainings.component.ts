@@ -1,20 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TrainingOverview } from '../../models/training';
+import { TrainingsApiService } from '../../services/trainings-api/trainings-api.service';
 
-const tmp: TrainingOverview[] = [
-  {
-    id: "1",
-    localization: "1",
-    address: "1",
-    date: new Date()
-  },
-  {
-    id: "2",
-    localization: "loc2",
-    address: "address2",
-    date: new Date()
-  }
-]
 
 @Component({
   selector: 'app-trainings',
@@ -23,11 +10,14 @@ const tmp: TrainingOverview[] = [
 })
 export class TrainingsComponent implements OnInit {
 
-  trainingsData = tmp;
+  trainingsData!: TrainingOverview[];
 
-  constructor() { }
+  constructor(private trainingsApiService: TrainingsApiService) { }
 
   ngOnInit(): void {
+    this.trainingsApiService.getTrainings().subscribe((trainings: TrainingOverview[]) => {
+      this.trainingsData = trainings;
+    })
   }
 
 }
