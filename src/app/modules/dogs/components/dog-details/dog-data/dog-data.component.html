@@ -1,0 +1,54 @@
+<section class="flex">
+  <div class="dog-photo">
+    <img src="../../../../../../assets/images/dog.jpg" class="photo">
+    <i class="pi pi-camera" (click)="changePhoto()"></i>
+  </div>
+
+  <div>
+    <div class="header flex align-items-center gap-3">
+      <h1>{{data.name}}</h1>
+      <i class="pi pi-pencil" *ngIf="isDataReadonly" (click)="editData()"></i>
+    </div>
+
+    <div *ngIf="isDataReadonly; else form" class="flex dog-data">
+      <span class="label">Przewodnik</span>
+      <span>{{data.guideName}}</span>
+
+      <span class="label">Rasa</span>
+      <span>{{data.breed}}</span>
+
+      <span class="label">Data urodzenia</span>
+      <span>{{data.dateOfBirth | date:"dd-MM-yyyy"}}</span>
+
+      <span class="label">Notatki</span>
+      <span>{{data.notes}}</span>
+    </div>
+  </div>
+
+  <ng-template #form>
+    <form [formGroup]="editDogForm" class="flex flex-column gap-3">
+      <div class="flex dog-data">
+        <label for="guide">Przewodnik</label>
+        <p-dropdown
+          class="dog-input"
+          formControlName="guide"
+          id="guide"
+          [options]="guides"
+          optionLabel="name"
+          optionValue="id"
+          ></p-dropdown>
+
+        <label for="breed">Rasa</label>
+        <input class="dog-input" type="text" ks pInputText formControlName="breed" id="breed">
+
+        <label for="dateOfBirth">Data urodzenia</label>
+        <p-calendar class="dog-input" formControlName="dateOfBirth" id="dateOfBirth" dateFormat="dd-mm-yy"></p-calendar>
+
+        <label for="notes">Notatki</label>
+        <textarea class="dog-input" pInputTextarea formControlName="notes" id="notes"></textarea>
+      </div>
+
+      <button pButton pRipple type="button" label="Zapisz" class="p-button-raised align-self-end" (click)="saveData()"></button>
+    </form>
+  </ng-template>
+</section>
