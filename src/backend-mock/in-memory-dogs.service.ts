@@ -1,9 +1,10 @@
 import { InMemoryDbService } from "angular-in-memory-web-api";
 import { Dog, DogDetails, DogLevel } from "src/app/modules/dogs/models/dog.model";
+import { Guide } from "src/app/modules/dogs/models/guide.model";
 
 export class InMemoryDogsService extends InMemoryDbService {
 
-  createDb(): { dogs: Dog[], dogDetails: DogDetails[] } {
+  createDb(): { dogs: Dog[], dogDetails: DogDetails[], guides: Guide[] } {
     return {
       dogs: [
         {
@@ -26,7 +27,6 @@ export class InMemoryDogsService extends InMemoryDbService {
           "guideName": "Jan Kowalski",
           "breed": "Labrador",
           "dateOfBirth": new Date(2022, 11, 20),
-          "level": DogLevel.ADVANCED,
           "notes": "notatki",
           "kgtTrainings": [
             {
@@ -131,6 +131,11 @@ export class InMemoryDogsService extends InMemoryDbService {
             }
           ]
         }
+      ],
+      guides: [
+        {id: '1', name: 'Jan Kowalski'},
+        {id: '2', name: 'Anna Nowak'},
+        {id: '3', name: 'Marek Ziemniak'}
       ]
     }
   }

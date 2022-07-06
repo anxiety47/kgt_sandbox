@@ -20,9 +20,6 @@
       <span class="label">Data urodzenia</span>
       <span>{{data.dateOfBirth | date:"dd-MM-yyyy"}}</span>
 
-      <span class="label">Poziom</span>
-      <span>{{data.level}}</span>
-
       <span class="label">Notatki</span>
       <span>{{data.notes}}</span>
     </div>
@@ -32,16 +29,20 @@
     <form [formGroup]="editDogForm" class="flex flex-column gap-3">
       <div class="flex dog-data">
         <label for="guide">Przewodnik</label>
-        <p-dropdown class="dog-input" formControlName="guide" id="guide"></p-dropdown>
+        <p-dropdown
+          class="dog-input"
+          formControlName="guide"
+          id="guide"
+          [options]="guides"
+          optionLabel="name"
+          optionValue="id"
+          ></p-dropdown>
 
         <label for="breed">Rasa</label>
         <input class="dog-input" type="text" ks pInputText formControlName="breed" id="breed">
 
         <label for="dateOfBirth">Data urodzenia</label>
         <p-calendar class="dog-input" formControlName="dateOfBirth" id="dateOfBirth" dateFormat="dd-mm-yy"></p-calendar>
-
-        <label for="level">Poziom</label>
-        <p-dropdown class="dog-input" formControlName="level" id="level"></p-dropdown>
 
         <label for="notes">Notatki</label>
         <textarea class="dog-input" pInputTextarea formControlName="notes" id="notes"></textarea>

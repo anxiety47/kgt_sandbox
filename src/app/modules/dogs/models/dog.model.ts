@@ -20,7 +20,7 @@ export interface DogDetails {
   guideName: string;
   breed: string;
   dateOfBirth: Date;
-  level: DogLevel;
+  // level: DogLevel;
   notes: string;
   // photo
   kgtTrainings: Training[];
