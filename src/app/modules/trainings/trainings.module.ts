@@ -7,12 +7,16 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryTrainingsService } from 'src/backend-mock/in-memory-trainings.service';
 import { HttpClientModule } from '@angular/common/http';
 import { TableModule } from 'primeng/table';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
     TrainingsComponent
   ],
   imports: [
+    AgmCoreModule.forRoot({
+      apiKey: ''
+    }),
     CommonModule,
     ButtonModule,
     HttpClientModule,

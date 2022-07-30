@@ -10,6 +10,8 @@ import { TrainingsApiService } from '../../services/trainings-api/trainings-api.
 })
 export class TrainingsComponent implements OnInit {
 
+  lat = 50.078418;
+  lng = 20.009007;
   trainingsData!: TrainingOverview[];
 
   constructor(private trainingsApiService: TrainingsApiService) { }

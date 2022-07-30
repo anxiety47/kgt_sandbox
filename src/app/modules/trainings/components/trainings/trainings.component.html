@@ -3,10 +3,10 @@
     [value]="trainingsData"
     responsiveLayout="scroll"
     [paginator]="true"
-    [rows]="8"
+    [rows]="10"
     [showCurrentPageReport]="true"
     currentPageReportTemplate="{first} z {last}"
-    [rowsPerPageOptions]="[8,16]">
+    [rowsPerPageOptions]="[5,10,20]">
 
     <ng-template pTemplate="header">
       <tr>
@@ -31,5 +31,7 @@
   </p-table>
 </div>
 <div class="map">
-  <p>map placeholder</p>
+  <agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
 </div>
