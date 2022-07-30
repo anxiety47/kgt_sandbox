@@ -1,9 +1,10 @@
 import { InMemoryDbService } from "angular-in-memory-web-api";
+import { DogTraining } from "src/app/modules/trainings/models/dogs.model";
 import { TrainingDetails, TrainingOverview } from "src/app/modules/trainings/models/training.model";
 
 export class InMemoryTrainingsService extends InMemoryDbService {
 
-  createDb(): { trainings: TrainingOverview[], trainingDetails: TrainingDetails[] } {
+  createDb(): { trainings: TrainingOverview[], trainingDetails: TrainingDetails[], dogTrainingDetails: DogTraining[] } {
     return {
       trainings:  [
         {
@@ -108,6 +109,50 @@ export class InMemoryTrainingsService extends InMemoryDbService {
             }
           ]
         }
+      ],
+      dogTrainingDetails: [
+        {
+          "id": "1",
+          "delayTime": "30 min",
+          "duration": "1h",
+          "weather": "Pogoda",
+          "notes": "notatki",
+          "groundType": "podłoże",
+          "dogTrackData": {
+            "dogTrackPoints": [
+              {
+                "latitude": 50.21,
+                "longitude": 20.21,
+                "time": new Date()
+              },
+              {
+                "latitude": 50.22,
+                "longitude": 20.21,
+                "time": new Date()
+              }
+            ],
+            "dogTrailLength": "700m",
+            "dogStartTime": new Date(2022, 12, 20, 13, 14),
+          },
+          "lostPersonTrackData": {
+            "lostPersonName": 'Jan Kowalski',
+            "lostPersonTrackPoints": [
+              {
+                "latitude": 50.22,
+                "longitude": 20.20,
+                "time": new Date()
+              },
+              {
+                "latitude": 50.22,
+                "longitude": 20.21,
+                "time": new Date()
+              }
+            ],
+            "lostPersonTrailLength": "500m",
+            "lostPersonStartTime": new Date(2022, 12, 20, 13, 14),
+          },
+
+        },
       ]
     }
   }

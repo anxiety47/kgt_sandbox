@@ -1,1 +1,9 @@
-<p>dog-training works!</p>
+<ng-container *ngIf="dogTrainingDetails; else spinner">
+  <agm-map [latitude]="lat" [longitude]="lng">
+    <ng-container *ngFor="let marker of dogTrainingDetails.dogTrackData.dogTrackPoints">
+      <agm-marker [latitude]="marker.latitude" [longitude]="marker.longitude"></agm-marker>
+    </ng-container>
+  </agm-map>
+</ng-container>
+
+<ng-template #spinner></ng-template>

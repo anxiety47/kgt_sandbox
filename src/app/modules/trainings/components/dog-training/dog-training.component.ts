@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DogTraining } from '../../models/dogs.model';
+import { TrainingsApiService } from '../../services/trainings-api/trainings-api.service';
 
 @Component({
   selector: 'app-dog-training',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DogTrainingComponent implements OnInit {
 
-  constructor() { }
+  lat = 50.078418;
+  lng = 20.009007;
+
+  dogTrainingId!: string | null;
+  dogTrainingDetails!: DogTraining;
+
+  constructor(
+    private route: ActivatedRoute,
+    private trainingsApiService: TrainingsApiService
+  ) { }
 
   ngOnInit(): void {
+    this.dogTrainingId = this.route.snapshot.paramMap.get('id');
+    if (!this.dogTrainingId) {
+      // TODO: redirect to error page
+    } else {
+      this.trainingsApiService.getDogTrainingDetails(this.dogTrainingId).subscribe(dogTrainingDetails => {
+        this.dogTrainingDetails = dogTrainingDetails;
+      });
+    }
   }
 
 }
