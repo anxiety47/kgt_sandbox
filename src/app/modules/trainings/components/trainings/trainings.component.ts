@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TrainingOverview } from '../../models/training';
+import { TrainingOverview } from '../../models/training.model';
 import { TrainingsApiService } from '../../services/trainings-api/trainings-api.service';
 
 
@@ -27,7 +27,7 @@ export class TrainingsComponent implements OnInit {
     })
   }
 
-  showTraining(id: string): void {
+  showDetails(id: string): void {
     this.router.navigate([id], { relativeTo: this.route });
   }
 }

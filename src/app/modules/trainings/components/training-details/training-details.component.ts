@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TrainingDetails } from '../../models/training';
+import { TrainingDetails } from '../../models/training.model';
 import { TrainingsApiService } from '../../services/trainings-api/trainings-api.service';
 
 @Component({
@@ -26,6 +26,10 @@ export class TrainingDetailsComponent implements OnInit {
         this.trainingDetails = trainingDetails;
       });
     }
+  }
+
+  showDogTraining(id: string):void {
+    // TODO: redirect to dog training
   }
 
 }

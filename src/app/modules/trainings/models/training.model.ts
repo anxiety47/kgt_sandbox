@@ -1,3 +1,5 @@
+import { DogTraining } from "./dogs.model";
+
 export interface TrainingOverview {
   id: string;
   localization: string;
@@ -12,5 +14,5 @@ export interface TrainingDetails {
   date: Date;
   notes: string;
   weather: string;
-  // TODO: add dogs list
+  dogTrainings: DogTraining[];
 }

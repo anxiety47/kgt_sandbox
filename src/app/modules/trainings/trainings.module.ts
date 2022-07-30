@@ -11,6 +11,7 @@ import { AgmCoreModule } from '@agm/core';
 import { TrainingDetailsComponent } from './components/training-details/training-details.component';
 import { TrainingsRoutingModule } from './trainings-routing.module';
 import { TrainingsApiService } from './services/trainings-api/trainings-api.service';
+import { DividerModule } from 'primeng/divider';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { TrainingsApiService } from './services/trainings-api/trainings-api.serv
     HttpClientModule,
     TrainingsRoutingModule,
     TableModule,
+    DividerModule,
     environment.production ?
     [] : HttpClientInMemoryWebApiModule.forRoot(InMemoryTrainingsService)
   ],

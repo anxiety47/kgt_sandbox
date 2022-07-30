@@ -1,5 +1,5 @@
 import { InMemoryDbService } from "angular-in-memory-web-api";
-import { TrainingDetails, TrainingOverview } from "src/app/modules/trainings/models/training";
+import { TrainingDetails, TrainingOverview } from "src/app/modules/trainings/models/training.model";
 
 export class InMemoryTrainingsService extends InMemoryDbService {
 
@@ -74,7 +74,19 @@ export class InMemoryTrainingsService extends InMemoryDbService {
           "address": "adres 1",
           "date": new Date(2022, 11, 20),
           "notes": "uwagi",
-          "weather": "pogoda"
+          "weather": "pogoda",
+          "dogTrainings": [
+            {
+              "dogTrainingId": "1",
+              "dogName": "Reks",
+              "startTime": new Date()
+            },
+            {
+              "dogTrainingId": "2",
+              "dogName": "Azor",
+              "startTime": new Date()
+            }
+          ]
         },
         {
           "id": "2",
@@ -82,7 +94,19 @@ export class InMemoryTrainingsService extends InMemoryDbService {
           "address": "adres 2",
           "date": new Date(),
           "notes": "uwagi",
-          "weather": "pogoda"
+          "weather": "pogoda",
+          "dogTrainings": [
+            {
+              "dogTrainingId": "1",
+              "dogName": "Reks",
+              "startTime": new Date()
+            },
+            {
+              "dogTrainingId": "2",
+              "dogName": "Azor",
+              "startTime": new Date()
+            }
+          ]
         }
       ]
     }
