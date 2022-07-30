@@ -23,7 +23,7 @@
         <td>{{training.address}}</td>
         <td>{{training.date | date:"dd-MM-yyyy"}}</td>
         <td>
-          <button type="button" pButton pRipple icon="pi pi-map" (click)="showTraining()"></button>
+          <button type="button" pButton pRipple icon="pi pi-map" (click)="showTraining(training.id)"></button>
         </td>
       </tr>
     </ng-template>

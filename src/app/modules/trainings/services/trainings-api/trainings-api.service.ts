@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { TrainingOverview } from '../../models/training';
+import { TrainingDetails, TrainingOverview } from '../../models/training';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 
@@ -13,5 +13,9 @@ export class TrainingsApiService {
 
   getTrainings(): Observable<TrainingOverview[]> {
     return this.http.get<TrainingOverview[]>(environment.url + '/trainings');
+  }
+
+  getTrainingDetails(id: string): Observable<TrainingDetails> {
+    return this.http.get<TrainingDetails>(environment.url + `/trainingDetails/${id}`)
   }
 }
