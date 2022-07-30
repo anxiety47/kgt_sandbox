@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TrainingOverview } from '../../models/training';
+import { TrainingsApiService } from '../../services/trainings-api/trainings-api.service';
+
 
 @Component({
   selector: 'app-trainings',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrainingsComponent implements OnInit {
 
-  constructor() { }
+  lat = 50.078418;
+  lng = 20.009007;
+  trainingsData!: TrainingOverview[];
+
+  constructor(private trainingsApiService: TrainingsApiService) { }
 
   ngOnInit(): void {
+    this.trainingsApiService.getTrainings().subscribe((trainings: TrainingOverview[]) => {
+      this.trainingsData = trainings;
+    })
+  }
+
+  showTraining(): void {
+    console.log('show training')
   }
 
 }
