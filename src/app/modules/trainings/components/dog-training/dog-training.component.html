@@ -4,6 +4,23 @@
       <agm-marker [latitude]="marker.latitude" [longitude]="marker.longitude"></agm-marker>
     </ng-container>
   </agm-map>
+  <p-tabView styleClass="tabview-custom">
+    <p-tabPanel header="Trening">
+      <div class="container">
+        <div class="info">
+          <span>test</span>
+          <input pInputText>
+        </div>
+        <div class="info">
+          <span>test</span>
+          <input pInputText>
+        </div>
+      </div>
+    </p-tabPanel>
+    <p-tabPanel header="Informacje dodatkowe">
+      [TODO] show additional information
+    </p-tabPanel>
+  </p-tabView>
 </ng-container>
 
 <ng-template #spinner></ng-template>

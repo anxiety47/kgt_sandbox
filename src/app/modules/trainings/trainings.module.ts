@@ -13,6 +13,7 @@ import { TrainingsRoutingModule } from './trainings-routing.module';
 import { TrainingsApiService } from './services/trainings-api/trainings-api.service';
 import { DividerModule } from 'primeng/divider';
 import { DogTrainingComponent } from './components/dog-training/dog-training.component';
+import { TabViewModule } from 'primeng/tabview';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { DogTrainingComponent } from './components/dog-training/dog-training.com
     TrainingsRoutingModule,
     TableModule,
     DividerModule,
+    TabViewModule,
     environment.production ?
     [] : HttpClientInMemoryWebApiModule.forRoot(InMemoryTrainingsService)
   ],
