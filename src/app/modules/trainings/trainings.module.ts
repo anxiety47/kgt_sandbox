@@ -8,10 +8,15 @@ import { InMemoryTrainingsService } from 'src/backend-mock/in-memory-trainings.s
 import { HttpClientModule } from '@angular/common/http';
 import { TableModule } from 'primeng/table';
 import { AgmCoreModule } from '@agm/core';
+import { TrainingDetailsComponent } from './components/training-details/training-details.component';
+import { TrainingsRoutingModule } from './trainings-routing.module';
+import { TrainingsApiService } from './services/trainings-api/trainings-api.service';
+import { DividerModule } from 'primeng/divider';
 
 @NgModule({
   declarations: [
-    TrainingsComponent
+    TrainingsComponent,
+    TrainingDetailsComponent
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -20,9 +25,14 @@ import { AgmCoreModule } from '@agm/core';
     CommonModule,
     ButtonModule,
     HttpClientModule,
+    TrainingsRoutingModule,
     TableModule,
+    DividerModule,
     environment.production ?
     [] : HttpClientInMemoryWebApiModule.forRoot(InMemoryTrainingsService)
+  ],
+  providers: [
+    TrainingsApiService
   ]
 })
 export class TrainingsModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TrainingOverview } from '../../models/training';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TrainingOverview } from '../../models/training.model';
 import { TrainingsApiService } from '../../services/trainings-api/trainings-api.service';
 
 
@@ -14,7 +15,11 @@ export class TrainingsComponent implements OnInit {
   lng = 20.009007;
   trainingsData!: TrainingOverview[];
 
-  constructor(private trainingsApiService: TrainingsApiService) { }
+  constructor(
+    private trainingsApiService: TrainingsApiService,
+    private router: Router,
+    private route: ActivatedRoute
+    ) { }
 
   ngOnInit(): void {
     this.trainingsApiService.getTrainings().subscribe((trainings: TrainingOverview[]) => {
@@ -22,8 +27,7 @@ export class TrainingsComponent implements OnInit {
     })
   }
 
-  showTraining(): void {
-    console.log('show training')
+  showDetails(id: string): void {
+    this.router.navigate([id], { relativeTo: this.route });
   }
-
 }
