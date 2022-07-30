@@ -12,11 +12,13 @@ import { TrainingDetailsComponent } from './components/training-details/training
 import { TrainingsRoutingModule } from './trainings-routing.module';
 import { TrainingsApiService } from './services/trainings-api/trainings-api.service';
 import { DividerModule } from 'primeng/divider';
+import { DogTrainingComponent } from './components/dog-training/dog-training.component';
 
 @NgModule({
   declarations: [
     TrainingsComponent,
-    TrainingDetailsComponent
+    TrainingDetailsComponent,
+    DogTrainingComponent
   ],
   imports: [
     AgmCoreModule.forRoot({

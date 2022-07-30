@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TrainingDetails } from '../../models/training.model';
 import { TrainingsApiService } from '../../services/trainings-api/trainings-api.service';
 
@@ -15,6 +15,7 @@ export class TrainingDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private trainingsApiService: TrainingsApiService) { }
 
   ngOnInit(): void {
@@ -27,9 +28,9 @@ export class TrainingDetailsComponent implements OnInit {
       });
     }
   }
-
+  
   showDogTraining(id: string):void {
-    // TODO: redirect to dog training
+    this.router.navigate([`dogTraining/${id}`], { relativeTo: this.route });
   }
 
 }
