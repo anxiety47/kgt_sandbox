@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { DogTraining } from '../../models/dogs.model';
 import { TrainingsApiService } from '../../services/trainings-api/trainings-api.service';
 
@@ -15,10 +16,30 @@ export class DogTrainingComponent implements OnInit {
 
   dogTrainingId!: string | null;
   dogTrainingDetails!: DogTraining;
+  form = this.formBuilder.group({
+    trailData: this.formBuilder.group({
+      lostPersonTrailLength: ['', Validators.required],
+      lostPersonStartTime: [new Date()],
+      delayTime: [''],
+      
+      dogTrailLength: [''],
+      dogStartTime: [new Date()],
+      duration: ['']
+    }),
+    weather: [''],
+    groundType: [''],
+    additionalData: {
+      lostPersonName: [''],
+      notes: [''],
+      // add files
+    }
+
+  })
 
   constructor(
     private route: ActivatedRoute,
-    private trainingsApiService: TrainingsApiService
+    private trainingsApiService: TrainingsApiService,
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit(): void {
@@ -28,8 +49,29 @@ export class DogTrainingComponent implements OnInit {
     } else {
       this.trainingsApiService.getDogTrainingDetails(this.dogTrainingId).subscribe(dogTrainingDetails => {
         this.dogTrainingDetails = dogTrainingDetails;
+        this.loadDataToForm();
       });
     }
+  }
+
+  private loadDataToForm(): void {
+    this.form.patchValue({
+      trailData: {
+        lostPersonTrailLength: this.dogTrainingDetails.lostPersonTrackData.lostPersonTrailLength,
+        lostPersonStartTime: new Date(this.dogTrainingDetails.lostPersonTrackData.lostPersonStartTime),
+        delayTime: this.dogTrainingDetails.delayTime,
+        
+        dogTrailLength: this.dogTrainingDetails.dogTrackData.dogTrailLength,
+        dogStartTime: new Date(this.dogTrainingDetails.dogTrackData.dogStartTime),
+        duration: this.dogTrainingDetails.duration
+      },
+      weather: this.dogTrainingDetails.weather,
+      groundType: this.dogTrainingDetails.groundType,
+      additionalData: {
+        lostPersonName: this.dogTrainingDetails.lostPersonTrackData.lostPersonName,
+        notes: this.dogTrainingDetails.notes
+      }
+    })
   }
 
 }

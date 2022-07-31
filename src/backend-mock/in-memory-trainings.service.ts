@@ -132,7 +132,7 @@ export class InMemoryTrainingsService extends InMemoryDbService {
               }
             ],
             "dogTrailLength": "700m",
-            "dogStartTime": new Date(2022, 12, 20, 13, 14),
+            "dogStartTime": new Date(2022, 11, 20, 13, 14),
           },
           "lostPersonTrackData": {
             "lostPersonName": 'Jan Kowalski',
@@ -149,7 +149,7 @@ export class InMemoryTrainingsService extends InMemoryDbService {
               }
             ],
             "lostPersonTrailLength": "500m",
-            "lostPersonStartTime": new Date(2022, 12, 20, 13, 14),
+            "lostPersonStartTime": new Date(2022, 11, 20, 13, 14),
           },
 
         },

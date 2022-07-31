@@ -4,23 +4,56 @@
       <agm-marker [latitude]="marker.latitude" [longitude]="marker.longitude"></agm-marker>
     </ng-container>
   </agm-map>
-  <p-tabView styleClass="tabview-custom">
-    <p-tabPanel header="Trening">
-      <div class="container">
-        <div class="info">
-          <span>test</span>
-          <input pInputText>
+  <form [formGroup]="form">
+    <p-tabView styleClass="tabview-custom">
+      <p-tabPanel header="Trening">
+        <div class="container">
+          <div class="info" formGroupName="trailData">
+  
+            <label for="lostPersonTrailLength">Długość śladu pozoranta</label>
+            <input type="text" pInputText formControlName="lostPersonTrailLength" id="lostPersonTrailLength">
+  
+            <label for="lostPersonStartTime">Czas startu pozoranta</label>
+            <p-calendar
+              formControlName="lostPersonStartTime"
+              id="lostPersonStartTime"
+              [showTime]="true"
+              dateFormat="dd-mm-yy">
+            </p-calendar>
+  
+            <label for="delayTime">Czas odłożenia śladu</label>
+            <input type="text" pInputText formControlName="delayTime" id="delayTime">
+  
+            <label for="dogTrailLength">Długość śladu psa</label>
+            <input type="text" pInputText formControlName="dogTrailLength" id="dogTrailLength">
+  
+            <label for="dogStartTime">Czas startu psa</label>
+            <p-calendar
+              formControlName="dogStartTime"
+              id="dogStartTime" 
+              [showTime]="true"
+              dateFormat="dd-mm-yy">
+            </p-calendar>
+  
+            <label for="duration">Czas pracy psa</label>
+            <input type="text" pInputText formControlName="duration" id="duration">
+  
+          </div>
+          <div class="info">
+            <label for="weather">Pogoda</label>
+            <textarea type="text" pInputTextarea formControlName="weather" id="weather" rows="10"></textarea>
+  
+            <label for="groundType">Typ podłoża</label>
+            <textarea type="text" pInputTextarea formControlName="groundType" id="groundType" rows="5"></textarea>
+  
+          </div>
         </div>
-        <div class="info">
-          <span>test</span>
-          <input pInputText>
-        </div>
-      </div>
-    </p-tabPanel>
-    <p-tabPanel header="Informacje dodatkowe">
-      [TODO] show additional information
-    </p-tabPanel>
-  </p-tabView>
+      </p-tabPanel>
+      <p-tabPanel header="Informacje dodatkowe">
+        [TODO] show additional information
+      </p-tabPanel>
+    </p-tabView>
+  </form>
 </ng-container>
 
 <ng-template #spinner></ng-template>
