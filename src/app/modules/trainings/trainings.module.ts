@@ -12,11 +12,17 @@ import { TrainingDetailsComponent } from './components/training-details/training
 import { TrainingsRoutingModule } from './trainings-routing.module';
 import { TrainingsApiService } from './services/trainings-api/trainings-api.service';
 import { DividerModule } from 'primeng/divider';
+import { DogTrainingComponent } from './components/dog-training/dog-training.component';
+import { TabViewModule } from 'primeng/tabview';
+import { InputTextModule } from 'primeng/inputtext';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [
     TrainingsComponent,
-    TrainingDetailsComponent
+    TrainingDetailsComponent,
+    DogTrainingComponent
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -27,7 +33,12 @@ import { DividerModule } from 'primeng/divider';
     HttpClientModule,
     TrainingsRoutingModule,
     TableModule,
+    //TODO: create shared module
     DividerModule,
+    TabViewModule,
+    ReactiveFormsModule,
+    InputTextModule,
+    CalendarModule,
     environment.production ?
     [] : HttpClientInMemoryWebApiModule.forRoot(InMemoryTrainingsService)
   ],

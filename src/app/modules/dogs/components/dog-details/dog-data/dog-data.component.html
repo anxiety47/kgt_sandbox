@@ -18,7 +18,7 @@
       <span>{{data.breed}}</span>
 
       <span class="label">Data urodzenia</span>
-      <span>{{data.dateOfBirth | date:"dd-MM-yyyy"}}</span>
+      <span>{{data.dateOfBirth | date:"dd-MM-yyyy hh:mm"}}</span>
 
       <span class="label">Notatki</span>
       <span>{{data.notes}}</span>
@@ -39,7 +39,7 @@
           ></p-dropdown>
 
         <label for="breed">Rasa</label>
-        <input class="dog-input" type="text" ks pInputText formControlName="breed" id="breed">
+        <input class="dog-input" type="text" pInputText formControlName="breed" id="breed">
 
         <label for="dateOfBirth">Data urodzenia</label>
         <p-calendar class="dog-input" formControlName="dateOfBirth" id="dateOfBirth" dateFormat="dd-mm-yy"></p-calendar>

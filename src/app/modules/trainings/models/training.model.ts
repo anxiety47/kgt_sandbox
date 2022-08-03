@@ -1,4 +1,4 @@
-import { DogTraining } from "./dogs.model";
+import { DogTrainingOverview } from "./dogs.model";
 
 export interface TrainingOverview {
   id: string;
@@ -14,5 +14,5 @@ export interface TrainingDetails {
   date: Date;
   notes: string;
   weather: string;
-  dogTrainings: DogTraining[];
+  dogTrainings: DogTrainingOverview[];
 }
