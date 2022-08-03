@@ -28,11 +28,11 @@ export class DogTrainingComponent implements OnInit {
     }),
     weather: [''],
     groundType: [''],
-    additionalData: {
+    additionalData: this.formBuilder.group({
       lostPersonName: [''],
       notes: [''],
       // add files
-    }
+    })
 
   })
 

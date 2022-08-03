@@ -44,13 +44,22 @@
             <textarea type="text" pInputTextarea formControlName="weather" id="weather" rows="10"></textarea>
   
             <label for="groundType">Typ podłoża</label>
-            <textarea type="text" pInputTextarea formControlName="groundType" id="groundType" rows="5"></textarea>
+            <textarea pInputTextarea formControlName="groundType" id="groundType" rows="5"></textarea>
   
           </div>
         </div>
       </p-tabPanel>
       <p-tabPanel header="Informacje dodatkowe">
-        [TODO] show additional information
+        <div class="info" formGroupName="additionalData">
+          <label for="lostPersonName">Pozorant</label>
+          <input type="text" pInputText formControlName="lostPersonName" id="lostPersonName">
+  
+          <label for="notes">Notatki</label>
+          <textarea pInputTextarea formControlName="notes" id="notes" rows="10"></textarea>
+
+          [TODO: ADD FILES]
+
+        </div>  
       </p-tabPanel>
     </p-tabView>
   </form>
