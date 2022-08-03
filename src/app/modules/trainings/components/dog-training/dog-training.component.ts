@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { DogTraining } from '../../models/dogs.model';
+import {  DogTraining, TrackPoint } from '../../models/dogs.model';
 import { TrainingsApiService } from '../../services/trainings-api/trainings-api.service';
 
 @Component({
@@ -11,8 +11,8 @@ import { TrainingsApiService } from '../../services/trainings-api/trainings-api.
 })
 export class DogTrainingComponent implements OnInit {
 
-  lat = 50.078418;
-  lng = 20.009007;
+  lat = 50.01150369644165;
+  lng = 19.82978582382202;
 
   dogTrainingId!: string | null;
   dogTrainingDetails!: DogTraining;
@@ -52,6 +52,14 @@ export class DogTrainingComponent implements OnInit {
         this.loadDataToForm();
       });
     }
+  }
+
+  onLineClick(event: any) {
+    console.log(event.latLng.toString())
+  }
+
+  markerClicked(data: TrackPoint) {
+    console.log('point data:', data)
   }
 
   private loadDataToForm(): void {

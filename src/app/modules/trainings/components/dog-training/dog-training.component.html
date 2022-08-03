@@ -1,9 +1,20 @@
 <ng-container *ngIf="dogTrainingDetails; else spinner">
-  <agm-map [latitude]="lat" [longitude]="lng">
-    <ng-container *ngFor="let marker of dogTrainingDetails.dogTrackData.dogTrackPoints">
-      <agm-marker [latitude]="marker.latitude" [longitude]="marker.longitude"></agm-marker>
-    </ng-container>
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="50">
+    <agm-polyline [strokeColor]="'#ff0000'" (lineClick)="onLineClick($event)">
+      <ng-container *ngFor="let data of dogTrainingDetails.dogTrackData.dogTrackPoints">
+        <agm-polyline-point
+          [latitude]="data.latitude"
+          [longitude]="data.longitude">
+        </agm-polyline-point>
+        <agm-marker
+          [latitude]="data.latitude"
+          [longitude]="data.longitude"
+          (markerClick)="markerClicked(data)">
+        </agm-marker>
+      </ng-container>
+    </agm-polyline>
   </agm-map>
+
   <form [formGroup]="form">
     <p-tabView styleClass="tabview-custom">
       <p-tabPanel header="Trening">
