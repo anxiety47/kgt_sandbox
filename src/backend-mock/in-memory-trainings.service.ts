@@ -121,13 +121,68 @@ export class InMemoryTrainingsService extends InMemoryDbService {
           "dogTrackData": {
             "dogTrackPoints": [
               {
-                "latitude": 50.21,
-                "longitude": 20.21,
+                "latitude": 50.01148223876953,
+                "longitude": 19.82978582382202,
                 "time": new Date()
               },
               {
-                "latitude": 50.22,
-                "longitude": 20.21,
+                "latitude": 50.01150369644165,
+                "longitude": 19.82980728149414,
+                "time": new Date()
+              },
+              {
+                "latitude": 50.01150369644165,
+                "longitude": 19.82978582382202,
+                "time": new Date()
+              },
+              {
+                "latitude": 50.01148223876953,
+                "longitude": 19.829742908477783,
+                "time": new Date()
+              },
+              {
+                "latitude": 50.01148223876953,
+                "longitude": 19.829742908477783,
+                "time": new Date()
+              },
+              {
+                "latitude": 50.01148223876953,
+                "longitude": 19.829678535461426,
+                "time": new Date()
+              },
+              {
+                "latitude": 50.01146078109741,
+                "longitude": 19.829657077789307,
+                "time": new Date()
+              },
+              {
+                "latitude": 50.01146078109741,
+                "longitude": 19.829635620117188,
+                "time": new Date()
+              },
+              {
+                "latitude": 50.01146078109741,
+                "longitude": 19.82961416244507,
+                "time": new Date()
+              },
+              {
+                "latitude": 50.01146078109741,
+                "longitude": 19.82957124710083,
+                "time": new Date()
+              },
+              {
+                "latitude": 50.01146078109741,
+                "longitude": 19.82957124710083,
+                "time": new Date()
+              },
+              {
+                "latitude": 50.01146078109741,
+                "longitude": 19.82957124710083,
+                "time": new Date()
+              },
+              {
+                "latitude": 50.01146078109741,
+                "longitude": 19.82957124710083,
                 "time": new Date()
               }
             ],
