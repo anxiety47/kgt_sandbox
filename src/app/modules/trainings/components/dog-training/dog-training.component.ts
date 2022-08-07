@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { DogTraining } from '../../models/dogs.model';
+import { DogTraining, TrackPoint } from '../../models/dogs.model';
 import { TrainingsApiService } from '../../services/trainings-api/trainings-api.service';
 
 @Component({
@@ -16,6 +16,9 @@ export class DogTrainingComponent implements OnInit {
 
   lat = 50.01150369644165;
   lng = 19.82978582382202;
+
+  currentDogTrail!: TrackPoint[];
+  // todo: add lost person trail
 
   dogTrainingId!: string | null;
   dogTrainingDetails!: DogTraining;
@@ -61,6 +64,14 @@ export class DogTrainingComponent implements OnInit {
     console.log(event.latLng.toString())
   }
 
+  setAsTrailStart(id: number): void {
+  }
+  
+  setAsTrailEnd(id: number): void {
+    this.currentDogTrail.splice(id);
+  }
+
+
   private loadDataToForm(): void {
     this.form.patchValue({
       trailData: {
@@ -79,6 +90,8 @@ export class DogTrainingComponent implements OnInit {
         notes: this.dogTrainingDetails.notes
       }
     })
+
+    this.currentDogTrail = this.dogTrainingDetails.dogTrackData.dogTrackPoints;
   }
 
 }

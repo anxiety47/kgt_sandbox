@@ -16,8 +16,16 @@
                 <span>{{data.longitude}}</span>
                 <span>{{data.time | date:'dd-MM-yyyy hh:mm:ss'}}</span>
                 <div>
-                  <button type="button" pButton label="Oznacz jako punkt początkowy" styleClass="p-button-sm"></button>
-                  <button type="button" pButton label="Oznacz jako punkt końcowy" styleClass="p-button-sm"></button>
+                  <button type="button" pButton
+                    label="Oznacz jako punkt początkowy"
+                    styleClass="p-button-sm"
+                    (click)="setAsTrailStart(data.id)">
+                  </button>
+                  <button type="button" pButton
+                    label="Oznacz jako punkt końcowy"
+                    styleClass="p-button-sm"
+                    (click)="setAsTrailEnd(data.id)">
+                  </button>
                 </div>
               </div>
             </agm-info-window>

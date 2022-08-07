@@ -121,66 +121,79 @@ export class InMemoryTrainingsService extends InMemoryDbService {
           "dogTrackData": {
             "dogTrackPoints": [
               {
+                "id": 1,
                 "latitude": 50.01148223876953,
                 "longitude": 19.82978582382202,
-                "time": new Date()
+                "time": new Date(2022, 11,20)
               },
               {
+                "id": 2,
                 "latitude": 50.01150369644165,
                 "longitude": 19.82980728149414,
                 "time": new Date()
               },
               {
+                "id": 3,
                 "latitude": 50.01150369644165,
                 "longitude": 19.82978582382202,
                 "time": new Date()
               },
               {
+                "id": 4,
                 "latitude": 50.01148223876953,
                 "longitude": 19.829742908477783,
                 "time": new Date()
               },
               {
+                "id": 5,
                 "latitude": 50.01148223876953,
                 "longitude": 19.829742908477783,
                 "time": new Date()
               },
               {
+                "id": 6,
                 "latitude": 50.01148223876953,
                 "longitude": 19.829678535461426,
                 "time": new Date()
               },
               {
+                "id": 7,
                 "latitude": 50.01146078109741,
                 "longitude": 19.829657077789307,
                 "time": new Date()
               },
               {
+                "id": 8,
                 "latitude": 50.01146078109741,
                 "longitude": 19.829635620117188,
                 "time": new Date()
               },
               {
+                "id": 9,
                 "latitude": 50.01146078109741,
                 "longitude": 19.82961416244507,
                 "time": new Date()
               },
               {
+                "id": 10,
                 "latitude": 50.01146078109741,
                 "longitude": 19.82957124710083,
                 "time": new Date()
               },
               {
+                "id": 11,
                 "latitude": 50.01146078109741,
                 "longitude": 19.82957124710083,
                 "time": new Date()
               },
               {
+                "id": 12,
                 "latitude": 50.01146078109741,
                 "longitude": 19.82957124710083,
                 "time": new Date()
               },
               {
+                "id": 13,
                 "latitude": 50.01146078109741,
                 "longitude": 19.82957124710083,
                 "time": new Date()
@@ -193,11 +206,13 @@ export class InMemoryTrainingsService extends InMemoryDbService {
             "lostPersonName": 'Jan Kowalski',
             "lostPersonTrackPoints": [
               {
+                "id": 1,
                 "latitude": 50.22,
                 "longitude": 20.20,
                 "time": new Date()
               },
               {
+                "id": 2,
                 "latitude": 50.22,
                 "longitude": 20.21,
                 "time": new Date()
