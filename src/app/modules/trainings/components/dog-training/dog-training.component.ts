@@ -60,15 +60,21 @@ export class DogTrainingComponent implements OnInit {
     }
   }
 
+  // TODO: to be removed?
   onLineClick(event: any) {
     console.log(event.latLng.toString())
   }
 
-  setAsTrailStart(id: number): void {
+  setAsDogTrailStart(startPoint: TrackPoint): void {
+    this.currentDogTrail = this.currentDogTrail.filter(
+      point => new Date(startPoint.time) <= new Date(point.time)
+    );
   }
   
-  setAsTrailEnd(id: number): void {
-    this.currentDogTrail.splice(id);
+  setAsTrailEnd(endPoint: TrackPoint): void {
+    this.currentDogTrail = this.currentDogTrail.filter(
+      point => new Date(point.time) <= new Date(endPoint.time)
+    );
   }
 
 

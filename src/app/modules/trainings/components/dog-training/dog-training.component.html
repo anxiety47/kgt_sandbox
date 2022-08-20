@@ -1,7 +1,7 @@
 <ng-container *ngIf="dogTrainingDetails; else spinner">
   <agm-map [latitude]="lat" [longitude]="lng" [zoom]="50">
     <agm-polyline [strokeColor]="'#ff0000'" (lineClick)="onLineClick($event)">
-      <ng-container *ngFor="let data of dogTrainingDetails.dogTrackData.dogTrackPoints">
+      <ng-container *ngFor="let data of currentDogTrail">
         <agm-polyline-point
           [latitude]="data.latitude"
           [longitude]="data.longitude">
@@ -19,12 +19,12 @@
                   <button type="button" pButton
                     label="Oznacz jako punkt początkowy"
                     styleClass="p-button-sm"
-                    (click)="setAsTrailStart(data.id)">
+                    (click)="setAsDogTrailStart(data)">
                   </button>
                   <button type="button" pButton
                     label="Oznacz jako punkt końcowy"
                     styleClass="p-button-sm"
-                    (click)="setAsTrailEnd(data.id)">
+                    (click)="setAsTrailEnd(data)">
                   </button>
                 </div>
               </div>

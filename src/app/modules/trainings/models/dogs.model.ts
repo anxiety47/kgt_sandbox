@@ -31,8 +31,6 @@ export interface LostPersonTrackData {
 }
 
 export interface TrackPoint {
-  // TODO id from 0 to x? (currently starts from 1)
-  id: number;
   latitude: number;
   longitude: number;
   time: Date;
