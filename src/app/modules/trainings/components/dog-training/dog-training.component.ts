@@ -18,6 +18,7 @@ export class DogTrainingComponent implements OnInit {
   lng = 19.82978582382202;
 
   currentDogTrail!: TrackPoint[];
+  currentPersonTrail!: TrackPoint[];
   // todo: add lost person trail
 
   dogTrainingId!: string | null;
@@ -25,12 +26,12 @@ export class DogTrainingComponent implements OnInit {
   form = this.formBuilder.group({
     trailData: this.formBuilder.group({
       lostPersonTrailLength: ['', Validators.required],
-      lostPersonStartTime: [new Date()],
-      delayTime: [''],
+      lostPersonStartTime: [new Date(), Validators.required],
+      delayTime: ['', Validators.required],
       
-      dogTrailLength: [''],
-      dogStartTime: [new Date()],
-      duration: ['']
+      dogTrailLength: ['', Validators.required],
+      dogStartTime: [new Date(), Validators.required],
+      duration: ['', Validators.required]
     }),
     weather: [''],
     groundType: [''],
@@ -77,6 +78,9 @@ export class DogTrainingComponent implements OnInit {
     );
   }
 
+  save(): void {
+
+  }
 
   private loadDataToForm(): void {
     this.form.patchValue({
@@ -95,9 +99,10 @@ export class DogTrainingComponent implements OnInit {
         lostPersonName: this.dogTrainingDetails.lostPersonTrackData.lostPersonName,
         notes: this.dogTrainingDetails.notes
       }
-    })
+    });
 
     this.currentDogTrail = this.dogTrainingDetails.dogTrackData.dogTrackPoints;
+    this.currentPersonTrail = this.dogTrainingDetails.lostPersonTrackData.lostPersonTrackPoints;
   }
 
 }
