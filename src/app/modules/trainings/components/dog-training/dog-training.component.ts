@@ -66,16 +66,43 @@ export class DogTrainingComponent implements OnInit {
     console.log(event.latLng.toString())
   }
 
+  // TODO: close displayed window before opening new one
+  onMarkerClick() {
+
+  }
+
   setAsDogTrailStart(startPoint: TrackPoint): void {
     this.currentDogTrail = this.currentDogTrail.filter(
       point => new Date(startPoint.time) <= new Date(point.time)
     );
+
+    this.updateDogStartTime();
+    this.updateDogTrailLength();
   }
   
-  setAsTrailEnd(endPoint: TrackPoint): void {
+  setAsDogTrailEnd(endPoint: TrackPoint): void {
     this.currentDogTrail = this.currentDogTrail.filter(
-      point => new Date(point.time) <= new Date(endPoint.time)
+      point => new Date(endPoint.time) >= new Date(point.time) 
     );
+
+    this.updateDogTrailLength();
+  }
+
+  setAsLostPersonTrailStart(startPoint: TrackPoint): void {
+    this.currentPersonTrail = this.currentPersonTrail.filter(
+      point => new Date(startPoint.time) <= new Date(point.time)
+    );
+
+    this.updateLostPersonStartTime();
+    this.updateLostPersonLength();
+  }
+
+  setAsLostPersonTrailEnd(endPoint: TrackPoint): void {
+    this.currentPersonTrail = this.currentPersonTrail.filter(
+      point => new Date(endPoint.time) >= new Date(point.time)
+    );
+
+    this.updateLostPersonLength();
   }
 
   save(): void {
@@ -105,4 +132,45 @@ export class DogTrainingComponent implements OnInit {
     this.currentPersonTrail = this.dogTrainingDetails.lostPersonTrackData.lostPersonTrackPoints;
   }
 
+  private updateDogStartTime(): void {
+    this.form.patchValue({
+      trailData: {
+        dogStartTime: new Date(this.currentDogTrail[0].time)
+      }
+    });
+  }
+
+  private updateDogTrailLength(): void {
+    this.form.patchValue({
+      trailData: {
+        dogTrailLength: this.calculateDogTrailLength()
+      }
+    });
+  }
+
+  private updateLostPersonStartTime(): void {
+    this.form.patchValue({
+      trailData: {
+        lostPersonStartTime: new Date(this.currentPersonTrail[0].time)
+      }
+    });
+  }
+
+  private updateLostPersonLength(): void {
+    this.form.patchValue({
+      trailData: {
+        lostPersonTrailLength: this.calculateLostPersonTrailLength()
+      }
+    });
+  }
+
+  // move to separate service / helper
+  private calculateDogTrailLength(): string {
+    // TODO: calculate length based on current dog trail
+    return '100m'
+  }
+
+  private calculateLostPersonTrailLength(): string {
+    return '200m'
+  }
 }

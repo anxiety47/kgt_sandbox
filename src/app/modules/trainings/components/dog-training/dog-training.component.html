@@ -2,11 +2,15 @@
   <agm-map
     [latitude]="lat" [longitude]="lng"
     [zoom]="50">
+    <!-- create template for info window -->
     <agm-polyline [strokeColor]="'#ff0000'" (lineClick)="onLineClick($event)">
       <ng-container *ngFor="let data of currentDogTrail">
         <agm-polyline-point [latitude]="data.latitude" [longitude]="data.longitude">
         </agm-polyline-point>
-        <agm-marker [latitude]="data.latitude" [longitude]="data.longitude" [iconUrl]="icon">
+        <agm-marker
+          [latitude]="data.latitude" [longitude]="data.longitude"
+          [iconUrl]="icon"
+          (markerClick)="onMarkerClick()">
           <agm-info-window [disableAutoPan]="false">
             <div class="flex flex-column">
               <span>{{data.latitude}}</span>
@@ -17,7 +21,34 @@
                   (click)="setAsDogTrailStart(data)">
                 </button>
                 <button type="button" pButton label="Oznacz jako punkt końcowy" styleClass="p-button-sm"
-                  (click)="setAsTrailEnd(data)">
+                  (click)="setAsDogTrailEnd(data)">
+                </button>
+              </div>
+            </div>
+          </agm-info-window>
+        </agm-marker>
+      </ng-container>
+    </agm-polyline>
+
+    <agm-polyline [strokeColor]="'#0000ff'" (lineClick)="onLineClick($event)">
+      <ng-container *ngFor="let data of currentPersonTrail">
+        <agm-polyline-point [latitude]="data.latitude" [longitude]="data.longitude">
+        </agm-polyline-point>
+        <agm-marker
+          [latitude]="data.latitude" [longitude]="data.longitude"
+          [iconUrl]="icon"
+          (markerClick)="onMarkerClick()">
+          <agm-info-window [disableAutoPan]="false">
+            <div class="flex flex-column">
+              <span>{{data.latitude}}</span>
+              <span>{{data.longitude}}</span>
+              <span>{{data.time | date:'dd-MM-yyyy hh:mm:ss'}}</span>
+              <div>
+                <button type="button" pButton label="Oznacz jako punkt początkowy" styleClass="p-button-sm"
+                  (click)="setAsLostPersonTrailStart(data)">
+                </button>
+                <button type="button" pButton label="Oznacz jako punkt końcowy" styleClass="p-button-sm"
+                  (click)="setAsLostPersonTrailEnd(data)">
                 </button>
               </div>
             </div>

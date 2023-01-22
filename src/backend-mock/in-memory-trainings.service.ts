@@ -198,14 +198,24 @@ export class InMemoryTrainingsService extends InMemoryDbService {
             "lostPersonName": 'Jan Kowalski',
             "lostPersonTrackPoints": [
               {
-                "latitude": 50.22,
-                "longitude": 20.20,
-                "time": new Date()
+                "latitude": 50.22000000000001,
+                "longitude": 20.20100000000001,
+                "time": new Date(2022, 11, 20, 11, 34)
               },
               {
-                "latitude": 50.22,
-                "longitude": 20.21,
-                "time": new Date()
+                "latitude": 50.22000000000123,
+                "longitude": 20.21000000000231,
+                "time": new Date(2022, 11, 20, 11, 35)
+              },
+              {
+                "latitude": 50.22000000000432,
+                "longitude": 20.22000000000543,
+                "time": new Date(2022, 11, 20, 11, 36)
+              },
+              {
+                "latitude": 50.22000000000843,
+                "longitude": 20.23000000000842,
+                "time": new Date(2022, 11, 20, 11, 37)
               }
             ],
             "lostPersonTrailLength": "500m",
