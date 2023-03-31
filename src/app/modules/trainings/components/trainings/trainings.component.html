@@ -10,7 +10,8 @@
     [rows]="10"
     [showCurrentPageReport]="true"
     currentPageReportTemplate="{first} - {last} z {totalRecords}"
-    [rowsPerPageOptions]="[5,10,20]">
+    [rowsPerPageOptions]="[5,10,20]"
+    dataKey="localization">
 
     <!-- TODO: change table to dynamic and use global filter -->
     <!-- <ng-template pTemplate="caption">
@@ -24,6 +25,7 @@
 
     <ng-template pTemplate="header">
       <tr>
+        <th></th>
         <th>Lokalizacja</th>
         <th>Adres</th>
         <th>Data</th>
@@ -31,8 +33,11 @@
       </tr>
     </ng-template>
 
-    <ng-template pTemplate="body" let-training>
+    <ng-template pTemplate="body" let-training let-expanded="expanded">
       <tr>
+        <td>
+          <button type="button" pButton pRipple [pRowToggler]="training" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+      </td>
         <td>{{training.localization}}</td>
         <td>{{training.address}}</td>
         <td>{{training.date | date:"dd-MM-yyyy hh:mm"}}</td>
@@ -40,6 +45,12 @@
           <button type="button" pButton pRipple icon="pi pi-arrow-circle-right" (click)="showDetails(training.id)"></button>
         </td>
       </tr>
+    </ng-template>
+
+    <ng-template pTemplate="rowexpansion" let-training>
+      <div class="flex row-details">
+        <span>row details test</span>
+      </div>
     </ng-template>
 
   </p-table>
