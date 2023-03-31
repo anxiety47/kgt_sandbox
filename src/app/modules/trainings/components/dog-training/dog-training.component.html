@@ -1,68 +1,149 @@
 <ng-container *ngIf="dogTrainingDetails; else spinner">
-  <agm-map [latitude]="lat" [longitude]="lng">
-    <ng-container *ngFor="let marker of dogTrainingDetails.dogTrackData.dogTrackPoints">
-      <agm-marker [latitude]="marker.latitude" [longitude]="marker.longitude"></agm-marker>
-    </ng-container>
+  <agm-map
+    [latitude]="lat" [longitude]="lng"
+    [zoom]="50">
+    <!-- create template for info window -->
+    <agm-polyline [strokeColor]="'#ff0000'" (lineClick)="onLineClick($event)">
+      <ng-container *ngFor="let data of currentDogTrail">
+        <agm-polyline-point [latitude]="data.latitude" [longitude]="data.longitude">
+        </agm-polyline-point>
+        <agm-marker
+          [latitude]="data.latitude" [longitude]="data.longitude"
+          [iconUrl]="icon"
+          (markerClick)="onMarkerClick()">
+          <agm-info-window [disableAutoPan]="false">
+            <div class="flex flex-column">
+              <span>{{data.latitude}}</span>
+              <span>{{data.longitude}}</span>
+              <span>{{data.time | date:'dd-MM-yyyy hh:mm:ss'}}</span>
+              <div>
+                <button type="button" pButton label="Oznacz jako punkt początkowy" styleClass="p-button-sm"
+                  (click)="setAsDogTrailStart(data)">
+                </button>
+                <button type="button" pButton label="Oznacz jako punkt końcowy" styleClass="p-button-sm"
+                  (click)="setAsDogTrailEnd(data)">
+                </button>
+              </div>
+            </div>
+          </agm-info-window>
+        </agm-marker>
+      </ng-container>
+    </agm-polyline>
+
+    <agm-polyline [strokeColor]="'#0000ff'" (lineClick)="onLineClick($event)">
+      <ng-container *ngFor="let data of currentPersonTrail">
+        <agm-polyline-point [latitude]="data.latitude" [longitude]="data.longitude">
+        </agm-polyline-point>
+        <agm-marker
+          [latitude]="data.latitude" [longitude]="data.longitude"
+          [iconUrl]="icon"
+          (markerClick)="onMarkerClick()">
+          <agm-info-window [disableAutoPan]="false">
+            <div class="flex flex-column">
+              <span>{{data.latitude}}</span>
+              <span>{{data.longitude}}</span>
+              <span>{{data.time | date:'dd-MM-yyyy hh:mm:ss'}}</span>
+              <div>
+                <button type="button" pButton label="Oznacz jako punkt początkowy" styleClass="p-button-sm"
+                  (click)="setAsLostPersonTrailStart(data)">
+                </button>
+                <button type="button" pButton label="Oznacz jako punkt końcowy" styleClass="p-button-sm"
+                  (click)="setAsLostPersonTrailEnd(data)">
+                </button>
+              </div>
+            </div>
+          </agm-info-window>
+        </agm-marker>
+      </ng-container>
+    </agm-polyline>
   </agm-map>
-  <form [formGroup]="form">
-    <p-tabView styleClass="tabview-custom">
-      <p-tabPanel header="Trening">
-        <div class="container">
-          <div class="info" formGroupName="trailData">
-  
-            <label for="lostPersonTrailLength">Długość śladu pozoranta</label>
-            <input type="text" pInputText formControlName="lostPersonTrailLength" id="lostPersonTrailLength">
-  
-            <label for="lostPersonStartTime">Czas startu pozoranta</label>
-            <p-calendar
-              formControlName="lostPersonStartTime"
-              id="lostPersonStartTime"
-              [showTime]="true"
-              dateFormat="dd-mm-yy">
-            </p-calendar>
-  
-            <label for="delayTime">Czas odłożenia śladu</label>
-            <input type="text" pInputText formControlName="delayTime" id="delayTime">
-  
-            <label for="dogTrailLength">Długość śladu psa</label>
-            <input type="text" pInputText formControlName="dogTrailLength" id="dogTrailLength">
-  
-            <label for="dogStartTime">Czas startu psa</label>
-            <p-calendar
-              formControlName="dogStartTime"
-              id="dogStartTime" 
-              [showTime]="true"
-              dateFormat="dd-mm-yy">
-            </p-calendar>
-  
-            <label for="duration">Czas pracy psa</label>
-            <input type="text" pInputText formControlName="duration" id="duration">
-  
-          </div>
-          <div class="info">
-            <label for="weather">Pogoda</label>
-            <textarea type="text" pInputTextarea formControlName="weather" id="weather" rows="10"></textarea>
-  
-            <label for="groundType">Typ podłoża</label>
-            <textarea pInputTextarea formControlName="groundType" id="groundType" rows="5"></textarea>
-  
-          </div>
-        </div>
-      </p-tabPanel>
-      <p-tabPanel header="Informacje dodatkowe">
-        <div class="info" formGroupName="additionalData">
-          <label for="lostPersonName">Pozorant</label>
-          <input type="text" pInputText formControlName="lostPersonName" id="lostPersonName">
-  
-          <label for="notes">Notatki</label>
-          <textarea pInputTextarea formControlName="notes" id="notes" rows="10"></textarea>
 
-          [TODO: ADD FILES]
+  <div class="form">
 
-        </div>  
-      </p-tabPanel>
-    </p-tabView>
-  </form>
+    <form [formGroup]="form">
+      <p-tabView styleClass="tabview-custom">
+        <p-tabPanel header="Trening">
+          <div class="container">
+            <div class="info" formGroupName="trailData">
+
+              <div class="form-field">
+                <label for="lostPersonTrailLength">Długość śladu pozoranta</label>
+                <input type="text" pInputText formControlName="lostPersonTrailLength" id="lostPersonTrailLength">
+              </div>
+
+              <div class="form-field">
+                <label for="lostPersonStartTime">Czas startu pozoranta</label>
+                <p-calendar formControlName="lostPersonStartTime" id="lostPersonStartTime" [showTime]="true"
+                  dateFormat="dd-mm-yy">
+                </p-calendar>
+              </div>
+
+              <div class="form-field">
+                <label for="delayTime">Czas odłożenia śladu</label>
+                <input type="text" pInputText formControlName="delayTime" id="delayTime">
+              </div>
+
+              <div class="form-field">
+                <label for="dogTrailLength">Długość śladu psa</label>
+                <input type="text" pInputText formControlName="dogTrailLength" id="dogTrailLength">
+              </div>
+
+              <div class="form-field">
+                <label for="dogStartTime">Czas startu psa</label>
+                <p-calendar formControlName="dogStartTime" id="dogStartTime" [showTime]="true" dateFormat="dd-mm-yy">
+                </p-calendar>
+              </div>
+
+              <div class="form-field">
+                <label for="duration">Czas pracy psa</label>
+                <input type="text" pInputText formControlName="duration" id="duration">
+              </div>
+
+            </div>
+            <div class="info">
+              <div class="form-field">
+                <label for="weather">Pogoda</label>
+                <textarea type="text" pInputTextarea formControlName="weather" id="weather" rows="10"></textarea>
+              </div>
+
+              <div class="form-field">
+                <label for="groundType">Typ podłoża</label>
+                <textarea pInputTextarea formControlName="groundType" id="groundType" rows="5"></textarea>
+              </div>
+
+            </div>
+          </div>
+        </p-tabPanel>
+        <p-tabPanel header="Informacje dodatkowe">
+          <div class="info" formGroupName="additionalData">
+            <div class="form-field">
+              <label for="lostPersonName">Pozorant</label>
+              <input type="text" pInputText formControlName="lostPersonName" id="lostPersonName">
+            </div>
+
+            <div class="form-field">
+              <label for="notes">Notatki</label>
+              <textarea pInputTextarea formControlName="notes" id="notes" rows="10"></textarea>
+            </div>
+
+            <div class="upload-files">
+              <span>[TODO: ADD FILES]</span>
+            </div>
+
+          </div>
+        </p-tabPanel>
+      </p-tabView>
+    </form>
+    <div class="buttons">
+      <button
+        type="button"
+        pButton
+        label="Zapisz zmiany"
+        styleClass="p-button-sm"
+        (click)="save()">
+      </button>
+    </div>
+  </div>
 </ng-container>
 
 <ng-template #spinner></ng-template>

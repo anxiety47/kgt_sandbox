@@ -1,5 +1,8 @@
 <div class="trainings-list">
+  <!-- TODO: użyć row expand, żeby wyświetlić dodatkowe informacje
+  i nie korzystać z dodatkowego komponentu na detailsy -->
   <p-table
+    #trainings
     [value]="trainingsData"
     responsiveLayout="scroll"
     [paginator]="true"
@@ -7,6 +10,16 @@
     [showCurrentPageReport]="true"
     currentPageReportTemplate="{first} - {last} z {totalRecords}"
     [rowsPerPageOptions]="[5,10,20]">
+
+    <!-- TODO: change table to dynamic and use global filter -->
+    <!-- <ng-template pTemplate="caption">
+      <div class="flex">
+        <span class="p-input-icon-left ml-auto">
+            <i class="pi pi-search"></i>
+            <input pInputText type="text" (input)="trainings.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" />
+        </span>
+      </div>
+    </ng-template> -->
 
     <ng-template pTemplate="header">
       <tr>
@@ -30,6 +43,7 @@
 
   </p-table>
 </div>
+<!-- todo: wyrzucić mapę -->
 <div class="map">
   <agm-map [latitude]="lat" [longitude]="lng">
     <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
