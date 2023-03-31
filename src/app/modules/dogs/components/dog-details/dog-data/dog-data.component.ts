@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import { DogDetails } from '../../../models/dog.model';
 import { Guide } from 'src/app/modules/dogs/models/guide.model';
 import { DogsApiService } from '../../../services/dogs-api/dogs-api.service';
@@ -21,7 +21,7 @@ export class DogDataComponent implements OnInit {
 
   guides!: Guide[];
 
-  constructor(private formBuilder: FormBuilder, private dogsApiService: DogsApiService) {}
+  constructor(private formBuilder: UntypedFormBuilder, private dogsApiService: DogsApiService) {}
 
   ngOnInit(): void {
     this.editDogForm.patchValue({

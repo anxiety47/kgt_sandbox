@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { DogTraining, TrackPoint } from '../../models/dogs.model';
 import { TrainingsApiService } from '../../services/trainings-api/trainings-api.service';
@@ -46,7 +46,7 @@ export class DogTrainingComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private trainingsApiService: TrainingsApiService,
-    private formBuilder: FormBuilder
+    private formBuilder: UntypedFormBuilder
   ) { }
 
   ngOnInit(): void {
